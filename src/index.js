@@ -1,28 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
-
-
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from "firebase/auth";
+import { BrowserRouter } from 'react-router-dom';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -35,23 +18,27 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const firebase = initializeApp(firebaseConfig);
 
 // init services
-const db = getFirestore()
+const db = getFirestore(firebase);
+const auth = getAuth(firebase);
 
-// collection ref
-const colRef = collection(db, 'books')
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
 
-// get collection data
-getDocs(colRef)
-.then ((snapshot) => {
-  let books = []
-  snapshot.docs.forEach((doc) => {
-    books.push({ ...doc.data(), id: doc.id })
-  })
-  console.log(books)
-})
-.catch(err => {
-  console.log(err.message)
-})
+ReactDOM.render(
+  <React.StrictMode>
+    {/* Wrap your App component with BrowserRouter */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+export { db, auth, firebase };

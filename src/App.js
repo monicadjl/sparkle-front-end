@@ -1,23 +1,38 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NavMenu from './components/NavMenu'; // Import the NavMenu component
+import NewSparkleModal from './components/NewSparkleModal';
+import HomePage from './HomePage';
+
 
 function App() {
+  // const [showNewSparkleModal, setShowNewSparkleModal] = useState(false);
+  // const [showSparkleListModal, setShowSparkleListModal] = useState(false);
+
+  // const handleOpenNewSparkleModal = () => {
+  //   setShowNewSparkleModal(true);
+  // };
+
+  // const handleCloseNewSparkleModal = () => {
+  //   setShowNewSparkleModal(false);
+  // };
+
+  // const handleOpenSparkleListModal = () => {
+  //   setShowSparkleListModal(true);
+  // };
+
+  // const handleCloseSparkleListModal = () => {
+  //   setShowSparkleListModal(false);
+  // };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Pass the event handlers to NavMenu */}
+      <NavMenu />
+      <HomePage />
+      
+    
     </div>
   );
 }
