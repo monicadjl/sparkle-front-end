@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
 import { BrowserRouter } from 'react-router-dom';
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,21 +25,19 @@ const firebase = initializeApp(firebaseConfig);
 const db = getFirestore(firebase);
 const auth = getAuth(firebase);
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+// Use createRoot to render your app
+const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     {/* Wrap your App component with BrowserRouter */}
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
+
+
 
 export { db, auth, firebase };

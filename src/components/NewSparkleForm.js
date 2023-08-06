@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; 
 import './NewSparkleForm.css';
 import { auth, db, firebase } from '../index'
-import { Firestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const NewSparkleForm = () => {
     const [title, setTitle] = useState('');
@@ -10,17 +9,56 @@ const NewSparkleForm = () => {
     const [location, setLocation] = useState('');
     const [entry, setEntry] = useState('');
 
-    //handles form submission
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // //handles form submission
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
 
+    //     //get authenticated user
+    //     const currentUser = auth.currentUser;
+    //     if (!currentUser) {
+    //         console.error('User not authenticated.');
+    //         return;
+    //     };
+
+    //     // create new sparkle object with user ID, title, date, location, and entry
+    //     const newSparkle = {
+    //         userId: currentUser.uid,
+    //         title: title,
+    //         date: date,
+    //         location: location,
+    //         entry: entry,
+    //     };
+
+    //     //ref to firestore collection for sparkles
+    //     const sparklesRef = Firestore.collection('sparkles');
+    //     //const sparklesRef = db.collection('sparkles');
+
+    //     // add the new sparkle to firestore
+    //     sparklesRef
+    //         .add(newSparkle)
+    //         .then(() => {
+    //             console.log('Sparkle logged successfully!');
+    //             //clear form after submission
+    //             setTitle('');
+    //             setDate('');
+    //             setLocation('');
+    //             setEntry('');
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error logging sparkle:', error);
+    //         });
+    // };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
         //get authenticated user
         const currentUser = auth.currentUser;
         if (!currentUser) {
             console.error('User not authenticated.');
             return;
-        };
-
+        }
+    
         // create new sparkle object with user ID, title, date, location, and entry
         const newSparkle = {
             userId: currentUser.uid,
@@ -28,26 +66,28 @@ const NewSparkleForm = () => {
             date: date,
             location: location,
             entry: entry,
+            timestamp: serverTimestamp(), // Add server timestamp to the sparkle data
         };
+    
+        // get Firestore instance
+        const firestore = getFirestore();
+    
+        // ref to firestore collection for sparkles
+        const sparklesRef = collection(firestore, 'users', currentUser.uid, 'sparkles');
 
-        //ref to firestore collection for sparkles
-        const sparklesRef = Firestore.collection('sparkles');
-        //const sparklesRef = db.collection('sparkles');
-
+    
         // add the new sparkle to firestore
-        sparklesRef
-            .add(newSparkle)
-            .then(() => {
-                console.log('Sparkle logged successfully!');
-                //clear form after submission
-                setTitle('');
-                setDate('');
-                setLocation('');
-                setEntry('');
-            })
-            .catch((error) => {
-                console.error('Error logging sparkle:', error);
-            });
+        try {
+            await addDoc(sparklesRef, newSparkle);
+            console.log('Sparkle logged successfully!');
+            // clear form after submission
+            setTitle('');
+            setDate('');
+            setLocation('');
+            setEntry('');
+        } catch (error) {
+            console.error('Error logging sparkle:', error);
+        }
     };
 
     return (

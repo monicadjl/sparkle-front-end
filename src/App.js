@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import NavMenu from './components/NavMenu'; // Import the NavMenu component
-import NewSparkleModal from './components/NewSparkleModal';
 import HomePage from './HomePage';
 import UserGreeting from './components/UserGreeting';
 
@@ -29,8 +28,8 @@ function App() {
   return (
     <div className="App">
       {/* Pass the event handlers to NavMenu */}
-      <UserGreeting />
       <NavMenu />
+
       <HomePage />
       
     
