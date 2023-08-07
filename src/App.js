@@ -1,40 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import NavMenu from './components/NavMenu'; // Import the NavMenu component
-import HomePage from './HomePage';
+import NavMenu from './components/NavMenu'; // Import the NavMenu component;
 import UserGreeting from './components/UserGreeting';
 
 
+
 function App() {
-  // const [showNewSparkleModal, setShowNewSparkleModal] = useState(false);
-  // const [showSparkleListModal, setShowSparkleListModal] = useState(false);
-
-  // const handleOpenNewSparkleModal = () => {
-  //   setShowNewSparkleModal(true);
-  // };
-
-  // const handleCloseNewSparkleModal = () => {
-  //   setShowNewSparkleModal(false);
-  // };
-
-  // const handleOpenSparkleListModal = () => {
-  //   setShowSparkleListModal(true);
-  // };
-
-  // const handleCloseSparkleListModal = () => {
-  //   setShowSparkleListModal(false);
-  // };
-
+  
   return (
     <div className="App">
-      {/* Pass the event handlers to NavMenu */}
-      <NavMenu />
+      <header>
+        <UserGreeting />
+      </header>
 
-      <HomePage />
-      
-    
+      <main className="main-content">
+        {/* Left side - Navigation */}
+        <aside className="sidebar">
+          <NavMenu />
+        </aside>
+      </main>
+
+      <footer>
+      </footer>
     </div>
   );
-}
+};
 
 export default App;

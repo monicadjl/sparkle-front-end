@@ -23,19 +23,6 @@ const UserGreeting = () => {
     return (
         <div className="greeting-container">
             <h1>Hello, {displayName}</h1>
-            <div className="animation-container">
-                <div className="fairy-container">
-                    <div className="fairy">
-                        <div className="wings"></div>
-                        <div className="glow">
-                            <div className="sparkle"></div>
-                            <div className="sparkle"></div>
-                            <div className="sparkle"></div>
-                            <div className="sparkle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };
