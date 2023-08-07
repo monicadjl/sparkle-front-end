@@ -65,7 +65,7 @@ const SparklesList = ({onSelectSparkle}) => {
             cursor: 'pointer',
           }}
         >
-          {sparkle.content}
+          {sparkle.title}
         </li>
       ))}
     </ul>
