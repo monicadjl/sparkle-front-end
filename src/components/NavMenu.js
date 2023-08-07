@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link }  from "react-router-dom";
 import NewSparkleModal from "./NewSparkleModal";
 import SparklesListModal from "./SparkleListModal";
 
