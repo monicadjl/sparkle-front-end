@@ -1,8 +1,11 @@
-/* App.css */
+
 .App {
   display: flex;
   flex-direction: column; /* Set the main axis to be vertical */
   align-items: flex-start; /* Align items to the start of the cross axis (top) */
+  background-image: url(https://img.freepik.com/free-vector/cartoon-wood-game-composition_1284-40201.jpg?w=1480&t=st=1691449474~exp=1691450074~hmac=8a11658fd0ca22d9f0b98a3c76180d7af7be791191e70d0d6945a526fa4a089c);
+  background-size: cover;
+  min-height: 100vh;
 }
 
 .main-content {
@@ -11,5 +14,3 @@
   flex: 1; /* Expand the main content to fill the remaining space */
   align-items: stretch; /* Align items to stretch vertically */
 }
-
-/* Style for the main content area */
