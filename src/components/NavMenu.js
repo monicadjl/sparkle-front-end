@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NewSparkleModal from "./NewSparkleModal";
 import SparklesListModal from "./SparkleListModal";
+import './NavMenu.css'
 
 const NavMenu = ({ onNewSparkleClick }) => {
     const [showNewSparkleModal, setShowNewSparkleModal] = useState(false);
@@ -24,13 +25,13 @@ const NavMenu = ({ onNewSparkleClick }) => {
 
 
     return (
-        <nav>
+        <nav className='container'>
             <ul>
                 <li>
-                    <button onClick={handleOpenNewSparkleModal}>New Sparkle</button>
+                    <button className='button' onClick={handleOpenNewSparkleModal}>New Sparkle</button>
                 </li>
                 <li>
-                    <button onClick={handleOpenSparkleListModal}>Sparkle List</button>
+                    <button className='button' onClick={handleOpenSparkleListModal}>Sparkle List</button>
                 </li>
             </ul>
         

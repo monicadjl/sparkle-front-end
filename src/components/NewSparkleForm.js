@@ -93,7 +93,7 @@ const NewSparkleForm = () => {
                     />
                 </label>
             </div>
-            <button type="submit">Log Sparkle</button>
+            <button className='submit-button' type="submit">Log Sparkle &#x2728;</button>
         </form>
     );
 };
