@@ -7,8 +7,8 @@ import './HomePage.css'
 
 const HomePage = () => {
     return (
-        <div className='container'>
-            <h1>Sparkle</h1>
+        <div className='home-container'>
+            <h1 className="sparkle">Sparkle</h1>
             <SignIn />
             <SignUp />
             <AuthDetails />

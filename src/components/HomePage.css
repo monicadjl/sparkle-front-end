@@ -1,3 +1,14 @@
-.container {
-    background-image: url(https://img.freepik.com/free-vector/cartoon-wood-game-design_1284-40202.jpg?w=1480&t=st=1691435626~exp=1691436226~hmac=2a9a10afa7c10f1acca3c3de016910c06170fa55a758b63c4f62dfbc4fdf61aa);
+.home-container {
+    background-image: url(https://img.freepik.com/free-photo/mysterious-tropical-rainforest-glows-with-lush-greenery-generated-by-ai_188544-15026.jpg?w=1480&t=st=1691545887~exp=1691546487~hmac=fcff84b5a1a868a5221fc5d9305b670fe97579334cbaeb68c3c20730f6d5e604);
+}
+
+.sparkle {
+    font-family: monospace;
+    font-stretch: expanded;
+    font-size: 100px;
+    color: #9CAF88;
+}
+
+div {
+    backdrop-filter: blur(10px);
 }

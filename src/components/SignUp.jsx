@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../index';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-
+import './SignUp.css'
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -29,28 +29,30 @@ const SignUp = () => {
 
     return (
         <div className='sign-up-container'>
-        <form onSubmit={signUp}>
+        <form className='signup-form' onSubmit={signUp}>
             <h1 className='sign-up-header'>Create an account</h1>
+            <label>Email: </label>
             <input
             type='email'
             placeholder='Enter your email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             />
+            <label>Password: </label>
             <input
             type='password'
             placeholder='Enter your password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
-            {/* Add a display name input field */}
+            <label>Display Name:</label>
             <input
             type='text'
             placeholder='Enter your display name'
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
             />
-            <button type='submit'>Sign Up</button>
+            <button className='sign-up-button' type='submit'>Sign Up</button>
         </form>
         </div>
     );
