@@ -5,7 +5,9 @@ import App from './App';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AuthControl from './components/AuthControl';
+import HomePage from './components/HomePage';
 
 
 // Your web app's Firebase configuration
@@ -30,9 +32,11 @@ const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<AuthControl />} />
+  </Routes>
+</BrowserRouter>
 );
 
 

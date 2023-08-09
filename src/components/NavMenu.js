@@ -3,7 +3,7 @@ import NewSparkleModal from "./NewSparkleModal";
 import SparklesListModal from "./SparkleListModal";
 import './NavMenu.css'
 import { auth, firebase } from '../index'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 
 const NavMenu = ({ onNewSparkleClick }) => {
@@ -36,7 +36,7 @@ const NavMenu = ({ onNewSparkleClick }) => {
     
             await auth.signOut(); // Sign the user out
 
-            navigate("/HomePage"); // Navigate back to the homepage
+            // navigate("/"); // Navigate back to the homepage
         } catch (error) {
             console.error("Error logging out:", error);
         }
@@ -52,7 +52,7 @@ const NavMenu = ({ onNewSparkleClick }) => {
                     <button className='button' onClick={handleOpenSparkleListModal}>Sparkle List</button>
                 </li>
                 <li>
-                    <button className='button' onClick={handleLogout}>Logout</button>
+                    <Link to='/' className='button' onClick={handleLogout}>Logout</Link>
                 </li>
             </ul>
         
