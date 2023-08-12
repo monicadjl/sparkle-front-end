@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db } from '../index';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import './SparklesList.css'
 
 const SparklesList = ({onSelectSparkle}) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -55,7 +56,7 @@ const SparklesList = ({onSelectSparkle}) => {
   return (
     <ul>
       {sparklesData.map((sparkle) => (
-        <li
+        <li className='list'
           key={sparkle.id}
           onClick={() => onSelectSparkle(sparkle)} // Pass the selected sparkle to the parent component
           onMouseEnter={() => setHoveredSparkle(sparkle)}

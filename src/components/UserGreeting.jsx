@@ -22,7 +22,7 @@ const UserGreeting = () => {
 
     return (
         <div className="greeting-container">
-            <h1>Hello, {displayName}</h1>
+            <h1>Hello, {displayName}!</h1>
         </div>
     );
 };

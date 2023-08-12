@@ -9,10 +9,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: monospace;
 }
 
 .modal-content {
-background-color: white;
+background-color: #ffd8cc;
 padding: 20px;
 border-radius: 5px;
 }
@@ -22,4 +23,12 @@ float: right;
 cursor: pointer;
 background: none;
 border: none;
+}
+
+.exit-list {
+    font-family: monospace;
+    color: #f97272;
+    background-color: #fff9a6;
+    font-size: 30px;
+    border-style: solid ;
 }

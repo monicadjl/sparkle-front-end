@@ -7,11 +7,12 @@ import './HomePage.css'
 
 const HomePage = () => {
     return (
-        <div className='home-container'>
+        <div className='home-container' id='hello-user'>
             <h1 className="sparkle">Sparkle</h1>
-            <SignIn />
-            <SignUp />
-            <AuthDetails />
+            <span>
+                <SignIn />
+                <SignUp />
+            </span>
         </div>
     );
 };

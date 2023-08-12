@@ -3,6 +3,7 @@
     border: 2px solid #00A4BD;
     padding: 10px;
     border-radius: 1rem;
+    min-height: 10vh;
 }
 
 .container ul {
@@ -27,8 +28,8 @@
     color: #363636;
     cursor: pointer;
     display: inline-flex;
-    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 1rem;
+    font-family: monospace;
+    font-size: 20px;
     height: 2.5em;
     justify-content: center;
     line-height: 1.5;

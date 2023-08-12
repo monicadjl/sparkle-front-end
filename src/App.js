@@ -1,11 +1,8 @@
 import React from 'react';
 import NavMenu from './components/NavMenu'; // Import the NavMenu component;
 import UserGreeting from './components/UserGreeting';
-import HomePage from './components/HomePage'
-import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom'
-import { auth } from './index';
 import './App.css';
-import AuthControl from './components/AuthControl';
+import ImageCarousel from './components/ImgCarousel';
 
 function App() {
   return (
@@ -16,7 +13,10 @@ function App() {
 
         <main className="main-content">
           <NavMenu />
+          <ImageCarousel />
         </main>
+
+        
 
         <footer>{/* Footer content */}</footer>
       </div>
